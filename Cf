@@ -1,0 +1,1 @@
+ssh -p 443 -R0:localhost:3389 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 AxDLr6UF6Mt+tcp@free.pinggy.io
