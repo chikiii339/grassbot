@@ -1,16 +1,5 @@
-version: '3.8'
+FROM debian:trixie-backports
 
-services:
-  miner:
-    image: debian:trixie-backports
-    container_name: appp
-    tty: true
-    stdin_open: true
-    ports:
-      - "7681:7681"
-    command: >
-      bash -c "
-        apt-get update &&
-        apt-get install -y curl bash &&
-        sleep infinity
-      "
+RUN apt-get update && apt-get install -y curl bash
+
+CMD ["sleep", "infinity"]
