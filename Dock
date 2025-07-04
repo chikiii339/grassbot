@@ -1,11 +1,16 @@
 version: '3.8'
 
 services:
-  web-terminal:
+  miner:
     image: debian:trixie-backports
-    container_name: web-terminal
+    container_name: appp
+    tty: true
+    stdin_open: true
     ports:
       - "7681:7681"
-    command: ["bash", "-c", "apt-get update && apt-get install -y ttyd && ttyd -p 7681 -i 0.0.0.0 --writable bash"]
-    stdin_open: true
-    tty: true
+    command: >
+      bash -c "
+        apt-get update &&
+        apt-get install -y curl bash &&
+        sleep infinity
+      "
