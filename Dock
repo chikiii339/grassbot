@@ -1,0 +1,11 @@
+services:
+  app:
+    image: debian:trixie-backports
+    container_name: app
+    ports:
+      - "3000:3000"
+    volumes:
+      - /var/run/tappd.sock:/var/run/tappd.sock
+    stdin_open: true
+    tty: true
+    command: tail -f /dev/null
