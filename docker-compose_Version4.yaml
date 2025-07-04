@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  webtop:
+    image: lscr.io/linuxserver/webtop:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - WEBTOP_PASSWORD=whattheunnecesary
+    stdin_open: true
+    tty: true
