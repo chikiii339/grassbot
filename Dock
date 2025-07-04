@@ -1,18 +1,11 @@
 version: '3.8'
 
 services:
-  app:
+  web-terminal:
     image: debian:trixie-backports
-    container_name: app
+    container_name: web-terminal
     ports:
-      - "3000:3000"
-    volumes:
-      - /var/run/tappd.sock:/var/run/tappd.sock
-    stdin_open: true
-    tty: true
-    command: tail -f /dev/null
-
-
-["bash", "-c", "apt-get update && apt-get install -y ttyd && ttyd -p 7681 -i 0.0.0.0 --writable bash"]
+      - "7681:7681"
+    command: ["bash", "-c", "apt-get update && apt-get install -y ttyd && ttyd -p 7681 -i 0.0.0.0 --writable bash"]
     stdin_open: true
     tty: true
